@@ -121,4 +121,4 @@ break;
 };
 });
 
-bot.login("NDQxMjM4NjE5NjQzMDUyMDQ0.DctXHQ.1GMpoMbVivdFkXhC85p7_K7c3H0");
+bot.login(process.env.BOT_TOKEN);
