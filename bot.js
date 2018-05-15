@@ -92,12 +92,14 @@ message.reply("check DMs.");
 break;
 
 case "say":
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No permission.");
   try {
-  if(!args[0]) return message.channel.send("Submit a message");
-  message.channel.send(args.join(" ").slice(1))
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No permission");
+  let botmessage = args.join(" ");
+  message.delete().catch();
+  message.channel.send(botmessage);
   }
   return;
+  
   
 
 case "serverinfo":
