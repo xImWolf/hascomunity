@@ -1,0 +1,11 @@
+{
+  "name": "altbot",
+  "version": "69.69.69",
+  "description": "hi",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

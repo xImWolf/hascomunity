@@ -1,0 +1,329 @@
+const Discord = require("discord.js");
+const bot = new Discord.Client();
+const moment = require('moment');
+var embedchannel = "da";
+var getgeoip = require('ip-geoinfo');
+var fs = require("fs");
+var requireText = require('require-text');
+var c = "#ff0000";
+const prefix = "!";
+
+bot.on("ready", () => {
+	console.log(`Logged in as ${bot.user.tag}, ${bot.user.id}`);
+	bot.user.setStatus("dnd");
+	bot.user.setGame(".genalt | Updated");
+});
+
+bot.on("message", message => {
+if(message.author.bot) return;
+if(message.channel.type === "dm") {
+message.channel.send("I am not currently supporting DM commands.");
+return;
+}
+var giiid = "373390106662404108";
+
+if(message.author.id === "343986172885991426") return;
+  if(!message.content.startsWith(prefix)) return;
+    var args = message.content.substring(prefix.length).split(" ");
+if(message.guild.id !== giiid) {
+message.channel.send(`This BOT only works on the H-Communitty server. You have an invite link below.\n\nhttps://discord.gg/XKGDYp3`);
+return;
+}
+    switch (args[0].toLowerCase()) {
+		case "gid":
+		try {
+			message.channel.send(message.guild.id);
+		}
+		catch(err) {
+	message.channel.send("An error occured: ```" + err + "```\nPlease contact the bot developer.");
+return;	
+}
+break;
+default:
+try {
+var argsss = args.join(" ")
+ message.channel.send(`Unknown command: **${prefix}${argsss}**.`);
+} 
+catch(err) {
+	message.channel.send("An error occured: ```" + err + "```\nPlease contact the bot developer.");
+return;	
+}
+
+break;
+		case "setgame":
+		try {
+		var gamme = args.join(" ").slice(8);
+		if(gamme.length === 0) {
+			message.channel.send("Please mention a game in your command.");
+			return;
+		} else {
+			bot.user.setGame(gamme);
+			message.channel.send(`Set playing status to **"${gamme}"**`);
+		}
+		}
+		catch(err) {
+	message.channel.send("An error occured: ```" + err + "```\nPlease contact the bot developer.");
+return;	
+}
+		
+		break;
+		
+case "genalt": // .genalt (am muncit undeva la 45-50minute la comanda asta .-.)
+try {
+var alts = [
+"lex.minya@comcast.net:Wintertime7",
+"bloodyirishkid@gmail.com:Yankees123",
+"alexander99k@yahoo.com:Ryokan99k",
+"brendan4848@earthlink.net:theplanes4848",
+"cale.monson@gmail.com:n0w1f369",
+"ahamayman1@gmail.com:Sherlock1",
+"robertcrisp1992@gmail.com:Bellamy1",
+"andrewbirch1991@hotmail.co.uk:star.wars13",
+"calixijelks@gmail.com:p00lball",
+"bball_legend1@yahoo.com:crazy118",
+"bloodydesirestoxiccupcake@yahoo.com:Joker1234",
+"bianca_gabriela2000@hotmail.com:Singapore0645724",
+"bearsfanforever15@yahoo.com:libertyand1",
+"bizarro.stearns@yahoo.com:Navarro96",
+"aa012345649@yahoo.com.tw:w23862288w",
+"az3rtycraft@gmail.com:poupoule7",
+"bschultz97@yahoo.com:anthony97",
+"ally.holley.aeh@gmail.com:hu7zr4",
+"alicia.mcmahon.2192@gmail.com:Mdambmc020192",
+"marvinspielmann96@web.de:112110ff",
+"calixijelks@gmail.com:p00lball",
+"amandabennett1617@gmail.com:Melissa13",
+"beni.luder@gmx.ch:aragon12",
+"carter2002@live.ca:walkers1",
+"atohs0319@gmail.com:shot0319",
+"carternovak@gmail.com:buckshot1",
+"brandon.wj@gmail.com:l0ngl3gz",
+"bloodyparasite0@gmail.com:042998cf",
+"andrewhughes4@msn.com:helmet10",
+"Galthras16@live.com:mongoose70",
+"Obermaier-Marinus@web.de:Extreme3D",
+"lukeromacker@gmail.com:leopold1",
+"bschultz97@yahoo.com:anthony97",
+"aryanbhakta26@gmail.com:bhakta26",
+"alexia.bensous@gmail.com:benben221",
+"Gamehakerz13@gmail.com:P@ssword",
+"anthonylahire@hotmail.fr:Stagate3",
+"brandon.wj@gmail.com:l0ngl3gz",
+"nickrenier@live.com:20132013",
+"awesomelaineavagliano@gmail.com:lollypop26659",
+"75437885@qq.com:qq754378855",
+"nbreva@gmail.com:Trifuerza12",
+"krsotr95@hotmail.com:Bailey11",
+"parsazanganeh2001@gmail.com:Kuscha123",
+"macpek13@hotmail.nl:Wilson10",
+"kevkape@hotmail.com:Doforlove21",
+"nicokrikken@gmail.com:Mazda626",
+"qrekk@wp.pl:Rodzina1",
+"haunsean@yahoo.com:Batman12",
+"kregerd222@aol.com:Goobers1",
+"trevinfitzgerald@yahoo.com:Tanner66",
+"markstanton7@gmail.com:Redsox05",
+"josh.guinto@gmail.com:Gold0907",
+"lunaticshell@gmail.com:Vsd02c123",
+"carterbailey@live.com:Bailey81",
+"liam.taubert@bigpond.com:Liam1298",
+"fireonice2004@hotmail.com:Bailey27",
+"bbaer7@gmail.com:60557029b",
+"boboboy197@gmail.com:Ppaul123",
+"zwhisenant89@gmail.com:Dropkick8",
+"johnboymilner@msn.com:032b10611",
+"repete14@gmail.com:Darnet14",
+"thierry.morin@laposte.net:Titouu1979",
+"gio_brass@hotmail.com:135790gio",
+"wzayed1987@hotmail.com:Radeon12",
+"travismorris@shaw.ca:Thehit11",
+"rik.achterberg@gmail.com:0verkant",
+"casualblair@gmail.com:10subsys",
+"dlpenick@msn.com:Simura123",
+"torresjonryan91@gmail.com:Taekwondo12",
+"rutgerdijkhoff@hotmail.com:Ru-1tg-2er",
+"joeyalvey17@gmail.com:Joey1997",
+"gblshm8@gmail.com:Pinkie97",
+"exenlight@hotmail.com:Clouds00",
+"dpmyers73@gmail.com:Saxophone1",
+"the__gimp@msn.com:Y5bx29up",
+"njpepper200@gmail.com:Mazel111",
+"merkel.sonja@yahoo.de:Salima300",
+"ca_rob26@yahoo.com:Ballin53",
+"aleks_abdypoor@yahoo.com:Aleks999",
+"pandababebg@gmail.com:Brcs4ever",
+"bigboywonder76@gmail.com:brian1996",
+"oli_bado@hotmail.com:1badoli2",
+"snubiusmc@gmail.com:Cassowary1998",
+"wrath_23@hotmail.com:1203144k",
+"tijnvangils04@gmail.com:Tijn3011"
+];
+var randomalt = alts[Math.floor(Math.random() * alts.length)];
+var embed = new Discord.RichEmbed()
+.setTitle(`${message.author.tag}'s free alt`)
+.setDescription(randomalt)
+.setColor(c)
+message.author.send({embed});
+message.react("👍");
+message.react("👎");
+
+
+message.author.send("Please react with 👍 if your alt worked, and with 👎 if your alt didn't work!");
+setTimeout(function(){},3000);
+bot.on('messageReactionAdd', (reaction, user) => {
+	if(user.id === "377185078662660096") return;
+      switch(reaction.emoji.name){
+        case "👍":
+            console.log(`Lui ${user.tag} i-a mers un alt: ${randomalt}`);
+            break;
+						case "👎":
+						console.log(`Lui ${user.tag} nu i-a mers un alt: ${randomalt}`);
+						break;
+
+        };
+  });
+case "setembedchannel":
+var argss = args.join(" ").slice(16);
+
+if(argss.length === 0) {
+	return;
+}
+var em = message.guild.channels.find("name", argss);
+if(!em) {
+	message.channel.send("A channel with that name doesn't exist! Please create one or this command will not work.")
+	return;
+} else {
+	embedchannel = argss;
+	message.channel.send(`Set default embed channel for command **.sendembed** to **${argss}**.`);
+}
+
+break;
+
+
+case "sendembed":
+var messagee = args.join(" ").slice(10);
+if(messagee.length === 0) {
+	return;
+} else {
+	var embed = new Discord.RichEmbed()
+	.setColor(c)
+	.setDescription(messagee)
+	.setFooter(`Message sent by ${message.author.tag}.`, message.author.avatarURL)
+	message.guild.channels.find("name", embedchannel).send({embed});
+}
+break;
+
+case "serverinfo":
+var embed = new Discord.RichEmbed()
+      .setAuthor(message.guild.name, message.guild.iconURL)
+      .addField("» Name:", message.guild.name, true)
+      .addField("» Owner:", message.guild.owner.user.username, true)
+      .addField("» Server ID:", message.guild.id, true)
+      .addField("» Owner ID:", message.guild.owner.id, true)
+      .addField("» Members:", message.guild.memberCount, true)
+      .addField("» Region:", message.guild.region, true)
+      .addField('» Roles:', '' + message.guild.roles.map(r => r.name).join(', ') + '', true)
+      .addField(`» Creation date:`, `${moment.utc(message.guild.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
+      .addField('» Security level:', message.guild.verificationLevel, true)
+      .addField("» Channels:", `Text: ${message.guild.channels.filter(ch => ch.type === 'text').size}\nVoice: ${ message.guild.channels.filter(ch => ch.type === "voice").size}`, true)
+      .setColor(c)
+      .setFooter(moment.utc(message.channel.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss'))
+      message.channel.send({embed});
+	  break;
+case "ipinfo":
+try {
+var argss = message.content.split(" ").slice(1);
+    if(argss.length === 0){
+      var embed = new Discord.RichEmbed()
+	  .setColor(c)
+	  .setDescription("Please mention an valid IP address!");
+	  message.channel.send({embed});
+      return;
+    };
+var ipAddress = argss.join(" ");
+getgeoip(ipAddress).then(function (geoData) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(`📡 | Info about IP ${geoData.ip}`)
+  .setColor(c)
+  .addField("» IP:", geoData.ip, true)
+  .addField("» City:", geoData.city,true)
+  .addField("» Region:", geoData.region, true)
+  .addField("» County:", geoData.country_name, true)
+  .addField("» Postal Code:", geoData.postal, true)
+  .addField("» Latitude:", geoData.latitude, true)
+  .addField("» Longitude:", geoData.longitude, true)
+  .addField("» Time Zone:", geoData.timezone, true)
+  .addField("» Organization:", geoData.org, true)
+  message.channel.send({embed});
+  });
+}
+catch(eroare) {
+message.channel.send(`An error occured:\n${eroare}`);
+return;
+}
+  break;
+
+
+case "help":
+var embed = new Discord.RichEmbed()
+.setTitle(":question: FreeAlts commands")
+.addField(".setembedchannel <channelName>", "Sets the default embed channel.")
+.addField(".sendembed <text>", "Sends an embed to the default embed channel.")
+.addField(".genalt", "Generates a random alt for you.")
+.addField(".serverinfo", "Shows the server information.")
+.addField(".ipinfo", "Gives you details about a IP Address.")
+.setFooter(`Made by Teo#8687.`, bot.user.avatarURL)
+.setColor(c)
+message.channel.send({embed});
+message.react("👌");
+break;
+
+case "serverinfo":
+var embed = new Discord.RichEmbed()
+      .setAuthor(message.guild.name, message.guild.iconURL)
+      .addField("» Name:", message.guild.name, true)
+      .addField("» Owner:", message.guild.owner.user.username, true)
+      .addField("» Server ID:", message.guild.id, true)
+      .addField("» Owner ID:", message.guild.owner.id, true)
+      .addField("» Members:", message.guild.memberCount, true)
+      .addField("» Region:", message.guild.region, true)
+      .addField('» Roles:', '' + message.guild.roles.map(r => r.name).join(', ') + '', true)
+      .addField(`» Creation date:`, `${moment.utc(message.guild.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
+      .addField('» Security level:', message.guild.verificationLevel, true)
+      .addField("» Channels:", `Text: ${message.guild.channels.filter(ch => ch.type === 'text').size}\nVoice: ${ message.guild.channels.filter(ch => ch.type === "voice").size}`, true)
+      .setColor(c)
+      .setFooter(moment.utc(message.channel.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss'))
+      message.channel.send({embed});
+	  break;
+case "ipinfo":
+var argss = message.content.split(" ").slice(1);
+    if(argss.length === 0){
+      var embed = new Discord.RichEmbed()
+	  .setColor(c)
+	  .setDescription("Please mention an valid IP address!");
+	  message.channel.send({embed});
+      return;
+    };
+var ipAddress = argss.join(" ");
+getgeoip(ipAddress).then(function (geoData) {
+  var embed = new Discord.RichEmbed()
+  .setTitle(`📡 | Info about IP ${geoData.ip}`)
+  .setColor(c)
+  .addField("» IP:", geoData.ip, true)
+  .addField("» City:", geoData.city,true)
+  .addField("» Region:", geoData.region, true)
+  .addField("» Country:", geoData.country_name, true)
+  .addField("» Postal Code:", geoData.postal, true)
+  .addField("» Latitude:", geoData.latitude, true)
+  .addField("» Longitude:", geoData.longitude, true)
+  .addField("» Time Zone:", geoData.timezone, true)
+  .addField("» Organization:", geoData.org, true)
+  message.channel.send({embed});
+  });
+  break;
+
+}
+
+});
+
+bot.login("Mzc3MTg1MDc4NjYyNjYwMDk2.DOJQfQ.4Au0-u6nZmZesrggmtJUEzRfjHs");
