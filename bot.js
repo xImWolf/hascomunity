@@ -90,18 +90,7 @@ var embed = new Discord.RichEmbed()
 message.author.sendMessage({embed});
 message.reply("check DMs.");
 break;
-
-case "say":
-  try {
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No permission");
-  let botmessage = args.join(" ");
-  message.delete().catch();
-  message.channel.send(botmessage);
-  }
-  return;
-  
-  
-
+		    
 case "serverinfo":
 	try {
 var embed = new Discord.RichEmbed()
