@@ -47,16 +47,16 @@ if(blarray.includes(message.author.id)) {
   	return;
   };
     var args = message.content.substring(prefix.length).split(" ");
+if(message.author.bot) return;
 if(message.channel.type === "dm") {
-  message.author.send("Sent **" + message.content.toString() + "** to the support.");
+  message.author.send("Sent message **"+message.content.toString()+"** to the support!");
   var embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
+  .setColor("#ff0000")
   .setDescription(message.content.toString())
   .setTitle("New message from "+message.author.tag, message.author.avatarURL)
   .setTimestamp()
-  .setFooter("H-Community Support system..")
-  bot.channels.get("449840938454482945").send({embed});
-
+  .setFooter("H-Community Mail System.")
+  bot.channels.find("id", "449840938454482945").send({embed})
 }
     switch (args[0].toLowerCase()) {
 
