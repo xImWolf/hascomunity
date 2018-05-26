@@ -29,10 +29,10 @@ let prefix = "!";
 
 bot.on("ready", () => {
 	console.log(`Logged in as ${bot.user.tag}, ${bot.user.id}`);
+	bot.channels.get("432085606609190912").send("bot loaded up");
 	bot.user.setStatus("dnd");
-    bot.user.setActivity(`!help - ${bot.users.size} members.`, {
-	  url: "https://twitch.tv/wolfyyxd",
-	  type: "STREAMING"
+    bot.user.setActivity(`${bot.users.size} users.`, {
+	  type: "Listening"
 	});
 });
 
