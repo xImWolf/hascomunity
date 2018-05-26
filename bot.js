@@ -26,7 +26,6 @@ var fs = require("fs");
 var requireText = require('require-text');
 let c = "#ff0000";
 let prefix = "!";
-
 bot.on("ready", () => {
 	console.log(`Logged in as ${bot.user.tag}, ${bot.user.id}`);
 	bot.channels.get("432085606609190912").send("bot loaded up");
@@ -39,14 +38,6 @@ bot.on("ready", () => {
 
 
 bot.on("message", message => {
-
-var giiid = "402499256591712257";
-    if(!message.content.startsWith(prefix)) return;
-if(blarray.includes(message.author.id)) {
-  	message.channel.send(`Hi, **${message.author.tag}**! This bot works only on H-Community`);
-  	return;
-  };
-    var args = message.content.substring(prefix.length).split(" ");
 if(message.author.bot) return;
 if(message.channel.type === "dm") {
   message.author.send("Sent message **"+message.content.toString()+"** to the support!");
@@ -58,6 +49,13 @@ if(message.channel.type === "dm") {
   .setFooter("H-Community Mail System.")
   bot.channels.find("id", "449840938454482945").send({embed})
 }
+var giiid = "402499256591712257";
+    if(!message.content.startsWith(prefix)) return;
+if(blarray.includes(message.author.id)) {
+  	message.channel.send(`Hi, **${message.author.tag}**! This bot works only on H-Community`);
+  	return;
+  };
+    var args = message.content.substring(prefix.length).split(" ");
     switch (args[0].toLowerCase()) {
 
 // comenzi normale
