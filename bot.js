@@ -48,6 +48,7 @@ if(message.channel.type === "dm") {
   .setTimestamp()
   .setFooter("H-Community Mail System.")
   bot.channels.find("id", "449840938454482945").send({embed})
+	return;
 }
 var giiid = "402499256591712257";
     if(!message.content.startsWith(prefix)) return;
