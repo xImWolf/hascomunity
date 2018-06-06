@@ -66,7 +66,7 @@ try {
 message.channel.send(args.join(" ").slice(1));
 }
 catch(err) {
-message.channel.send("\`\`\`${err}\`\`\``);
+message.channel.send(`\`\`\`${err}\`\`\``);
 }
 return;
 
