@@ -62,6 +62,8 @@ message.channel.send(`\`\`\`${err}\`\`\``);
 return;
 
 case "minecraft":
+if(message.member.roles.some(r=>["Noverify"].includes(r.name)))
+    return message.reply("Make sure you !verify first!");
 if(talkedRecently.has(message.author.id)) {
 message.channel.send(`${message.author.tag}, You need to wait at least 5 minutes to type !minecraft again!`);
   return;
@@ -80,6 +82,8 @@ message.reply("check DMs.");
 break;
 
 case "spotify":
+if(message.member.roles.some(r=>["Noverify"].includes(r.name)))
+    return message.reply("Make sure you !verify first!");
 if(talkedRecently.has(message.author.id)) {
 message.channel.send(`${message.author.tag}, You need to wait at least 5 minutes to type !spotify again!`);
   return;
