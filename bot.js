@@ -65,6 +65,9 @@ case "say":
 try {
 message.channel.send(args.join(" ").slice(1));
 }
+catch(err) {
+message.channel.send("\`\`\`${err}\`\`\``);
+}
 return;
 
 case "minecraft":
