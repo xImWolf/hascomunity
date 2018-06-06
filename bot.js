@@ -64,7 +64,7 @@ if(blarray.includes(message.author.id)) {
 case "say":
 if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No permission");
 try {
-message.channel.send(args.join(" ").slice(1));
+message.channel.send(args.join(" ").slice(3));
 }
 catch(err) {
 message.channel.send(`\`\`\`${err}\`\`\``);
