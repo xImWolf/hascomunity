@@ -61,6 +61,12 @@ if(blarray.includes(message.author.id)) {
 
 // comenzi normale
 
+case "say":
+try {
+message.channel.send(args.join(" ").slice(1));
+}
+return;
+
 case "minecraft":
 if(talkedRecently.has(message.author.id)) {
 message.channel.send(`${message.author.tag}, You need to wait at least 5 minutes to type !minecraft again!`);
