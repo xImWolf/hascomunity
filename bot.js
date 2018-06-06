@@ -39,17 +39,7 @@ bot.on("ready", () => {
 
 bot.on("message", message => {
 if(message.author.bot) return;
-if(message.channel.type === "dm") {
-  message.author.send("Sent message **"+message.content.toString()+"** to the support!");
-  var embed = new Discord.RichEmbed()
-  .setColor("#ff0000")
-  .setDescription(message.content.toString())
-  .setTitle("New message from "+message.author.tag, message.author.avatarURL)
-  .setTimestamp()
-  .setFooter("H-Community Mail System.")
-  bot.channels.find("id", "449840938454482945").send({embed})
-	return;
-}
+if(message.channel.type === "dm") return;
 var giiid = "402499256591712257";
     if(!message.content.startsWith(prefix)) return;
 if(blarray.includes(message.author.id)) {
