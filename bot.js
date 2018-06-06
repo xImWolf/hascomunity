@@ -62,6 +62,7 @@ if(blarray.includes(message.author.id)) {
 // comenzi normale
 
 case "say":
+if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No permission");
 try {
 message.channel.send(args.join(" ").slice(1));
 }
