@@ -28,14 +28,17 @@ let c = "#ff0000";
 let prefix = "!";
 bot.on("ready", () => {
 	console.log(`Logged in as ${bot.user.tag}, ${bot.user.id}`);
-	bot.channels.get("432085606609190912").send("bot loaded up");
 	bot.user.setStatus("dnd");
     bot.user.setActivity(`${bot.users.size} users.`, {
 	  type: "Listening"
 	});
 });
 
-
+bot.on("guildMemberAdd", member => {
+    let role = member.guild.roles.get("461530679927111681");
+    member.addRole(role.id);
+	
+});
 
 bot.on("message", message => {
 if(message.author.bot) return;
