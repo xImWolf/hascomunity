@@ -96,8 +96,8 @@ message.channel.send(`**${message.author.tag}** you have been succesfully verifi
 message.member.addRole(roleAdd.id);
  } catch(err) {
 	 console.log(err)
-	 return;
  }
+return;
 
 case "spotify":
 if(message.member.roles.some(r=>["Noverify"].includes(r.name)))
