@@ -36,7 +36,7 @@ bot.on("ready", () => {
 
 bot.on("guildMemberAdd", member => {
     let role = member.guild.roles.get("461530679927111681");
-    member.addRole(role.id);
+    member.addRole(role);
 	
 });
 
