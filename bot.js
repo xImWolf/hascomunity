@@ -58,6 +58,7 @@ case "say":
 if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("No permission");
 try {
 message.channel.send(args.join(" ").slice(3));
+message.delete();
 }
 catch(err) {
 message.channel.send(`\`\`\`${err}\`\`\``);
