@@ -35,9 +35,9 @@ bot.on("ready", () => {
 });
 
 bot.on("guildMemberAdd", member => {
-    let role = member.guild.roles.get("461530679927111681");
-    member.addRole(role);
-	
+let channel = member.guild.channels.find("name", "join-logs");
+if(!channel) return;
+channel.send(`**${member.user.tag}** joined **${member.guild.name}**`)	
 });
 
 bot.on("message", message => {
