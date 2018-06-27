@@ -91,9 +91,9 @@ if(message.member.roles.some(r=>["🚫 | Member"].includes(r.name)))
 let user = message.author;
 let roleRemove = message.guild.roles.find("name", "Awaiting verify");
 let roleAdd = message.guild.roles.find("name", "🚫 | Member");
-user.removeRole(roleRemove.id);
-message.channel.send(`${user}, you have been succesfully verified!`);
-user.addRole(roleAdd.id);
+message.member.removeRole(roleRemove.id);
+message.channel.send(`**${message.author.tag}** you have been succesfully verified!`);
+message.member.addRole(roleAdd.id);
  } catch(err) {
 	 console.log(err)
 	 return;
