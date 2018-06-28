@@ -13,9 +13,17 @@ var text = fs.readFileSync("./minecraft.txt").toString('utf-8');
 var textByLine = text.split("\n")
 // blacklist code jos:
 let bltext = fs.readFileSync("./blacklist.txt").toString('utf-8');
-let blarray = bltext.split("\n")
+let blarray = bltext.split("\n");
 //
 const items = JSON.parse(fs.readFileSync('items.json', 'utf8'));
+// uplay
+let uplaytext = fs.readFileSync("./uplay.txt").toString('utf-8');
+let uplayarray = uplaytext.split("\n");
+//
+// origin
+let origintext = fs.readFileSync("./origin.txt").toString('utf-8');
+let originarray = origintext.split("\n");
+//
 // spotify
 var fs = require("fs");
 var text = fs.readFileSync("./spotify.txt").toString('utf-8');
@@ -84,6 +92,46 @@ var embed = new Discord.RichEmbed()
 message.author.sendMessage({embed});
 message.reply("check DMs.");
 break;
+
+case "uplay":
+if(message.member.roles.some(r=>["Awaiting verify"].includes(r.name)))
+    return message.reply("Make sure you !verify first!");
+if(talkedRecently.has(message.author.id)) {
+message.channel.send(`${message.author.tag}, You need to wait at least 5 minutes to type !minecraft again!`);
+  return;
+	};
+talkedRecently.add(message.author.id);
+setTimeout(() => {
+  talkedRecently.delete(message.author.id);
+}, 300000);
+var uplayalt = uplayarray[Math.floor(Math.random() * uplayarray.length)];
+var embed = new Discord.RichEmbed()
+.setTitle(`Here is ur UPlay account, sir.`)
+.setDescription(uplayalt)
+.setColor(c)
+message.author.sendMessage({embed});
+message.reply("check DMs.");
+break;
+
+case "origin":
+if(message.member.roles.some(r=>["Awaiting verify"].includes(r.name)))
+    return message.reply("Make sure you !verify first!");
+if(talkedRecently.has(message.author.id)) {
+message.channel.send(`${message.author.tag}, You need to wait at least 5 minutes to type !minecraft again!`);
+  return;
+	};
+talkedRecently.add(message.author.id);
+setTimeout(() => {
+  talkedRecently.delete(message.author.id);
+}, 300000);
+var originalt = originarray[Math.floor(Math.random() * originarray.length)];
+var embed = new Discord.RichEmbed()
+.setTitle(`Here is ur Origin account, sir.`)
+.setDescription(originalt)
+.setColor(c)
+message.author.sendMessage({embed});
+message.reply("check DMs.");
+break;	
 
 case "verify":
  try {
